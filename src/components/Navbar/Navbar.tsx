@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Hamburger from 'hamburger-react';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
+  const [isOpen, setOpen] = useState(false);
+  
   return (
     <header className="navbar">
       <div className="container">
@@ -12,34 +15,34 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
         
-        <nav className="main-nav">
+        <div className="hamburger-wrapper">
+          <Hamburger toggled={isOpen} toggle={setOpen} color="#ffffff" />
+        </div>
+        
+        <nav className={`main-nav ${isOpen ? 'active' : ''}`}>
           <div className="nav-group">
-            <Link to="/" className="nav-link">Personal</Link>
-            <Link to="/business" className="nav-link">Business</Link>
+            <Link to="/" className="nav-link" onClick={() => setOpen(false)}>Personal</Link>
+            <Link to="/business" className="nav-link" onClick={() => setOpen(false)}>Business</Link>
           </div>
           
           <div className="nav-divider"></div>
           
           <div className="nav-group">
-            <Link to="/send" className="nav-link">Charts</Link>
-            <div className="dropdown">
-              <Link to="/transfers" className="nav-link dropdown-toggle">Money transfers</Link>
-            </div>
-            <Link to="/converter" className="nav-link">Converter</Link>
-            <div className="dropdown">
-              <Link to="/tools" className="nav-link dropdown-toggle">Tools</Link>
-            </div>
-            <div className="dropdown">
-              <Link to="/resources" className="nav-link dropdown-toggle">Resources</Link>
-            </div>
+            <Link to="/send" className="nav-link" onClick={() => setOpen(false)}>Charts</Link>
+            <Link to="/transfers" className="nav-link" onClick={() => setOpen(false)}>Money transfers</Link>
+            <Link to="/converter" className="nav-link" onClick={() => setOpen(false)}>Converter</Link>
+            <Link to="/tools" className="nav-link" onClick={() => setOpen(false)}>Tools</Link>
+            <Link to="/resources" className="nav-link" onClick={() => setOpen(false)}>Resources</Link>
+          </div>
+          
+          <div className="auth-buttons">
+            <Link to="/login" className="btn btn-link" onClick={() => setOpen(false)}>Login</Link>
+            <Link to="/register" className="btn btn-primary" onClick={() => setOpen(false)}>Register</Link>
+            <Link to="/contact" className="btn btn-outline" onClick={() => setOpen(false)}>Contact Us</Link>
           </div>
         </nav>
         
-        <div className="auth-buttons">
-          <Link to="/login" className="btn btn-link">Login</Link>
-          <Link to="/register" className="btn btn-primary">Register</Link>
-          <Link to="/contact" className="btn btn-outline">Contact Us</Link>
-        </div>
+        {isOpen && <div className="menu-overlay" onClick={() => setOpen(false)}></div>}
       </div>
     </header>
   );
