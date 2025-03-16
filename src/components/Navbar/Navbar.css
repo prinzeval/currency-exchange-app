@@ -1,0 +1,91 @@
+.navbar {
+    background-color: #0e1c5c;
+    padding: 15px 0;
+    color: white;
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo-img {
+    height: 30px;
+  }
+  
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-divider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 15px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .dropdown-toggle::after {
+    content: "▼";
+    font-size: 8px;
+    margin-left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-link {
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: #0087ff;
+    color: white;
+    border: none;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0072db;
+  }
+  
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
