@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <img src="/xe-logo.png" alt="XE" className="logo-img" />
+            <img src="https://cdn.vectorstock.com/i/500p/73/56/exchange-revenue-dollar-arrows-cycle-icon-simple-vector-52517356.jpg" alt="XE" className="logo-img" />
           </Link>
         </div>
         
@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
           <div className="nav-divider"></div>
           
           <div className="nav-group">
-            <Link to="/send" className="nav-link">Send money</Link>
+            <Link to="/send" className="nav-link">Charts</Link>
             <div className="dropdown">
               <Link to="/transfers" className="nav-link dropdown-toggle">Money transfers</Link>
             </div>
