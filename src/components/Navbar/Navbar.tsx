@@ -22,23 +22,23 @@ const Navbar: React.FC = () => {
         <nav className={`main-nav ${isOpen ? 'active' : ''}`}>
           <div className="nav-group">
             <Link to="/" className="nav-link" onClick={() => setOpen(false)}>Converter</Link>
-            <Link to="/business" className="nav-link" onClick={() => setOpen(false)}>Business</Link>
+            <Link to="#" className="nav-link" onClick={() => setOpen(false)}>Business</Link>
           </div>
           
           <div className="nav-divider"></div>
           
           <div className="nav-group">
             <Link to="/historical-data" className="nav-link" onClick={() => setOpen(false)}>Charts</Link>
-            <Link to="/currency-list" className="nav-link" onClick={() => setOpen(false)}>Currency List</Link>
-            <Link to="/transfers" className="nav-link" onClick={() => setOpen(false)}>Money transfers</Link>
-            <Link to="/tools" className="nav-link" onClick={() => setOpen(false)}>Tools</Link>
-            <Link to="/resources" className="nav-link" onClick={() => setOpen(false)}>Resources</Link>
+            <Link to="/currency-list" className="nav-link" onClick={() => setOpen(false)}>Currency </Link>
+            <Link to="#" className="nav-link" onClick={() => setOpen(false)}>Money transfers</Link>
+            <Link to="#" className="nav-link" onClick={() => setOpen(false)}>Tools</Link>
+            <Link to="#" className="nav-link" onClick={() => setOpen(false)}>Resources</Link>
           </div>
           
           <div className="auth-buttons">
-            <Link to="/login" className="btn btn-link" onClick={() => setOpen(false)}>Login</Link>
-            <Link to="/register" className="btn btn-primary" onClick={() => setOpen(false)}>Register</Link>
-            <Link to="/contact" className="btn btn-outline" onClick={() => setOpen(false)}>Contact Us</Link>
+            <Link to="#" className="btn btn-link" onClick={() => setOpen(false)}>Login</Link>
+            <Link to="#" className="btn btn-primary" onClick={() => setOpen(false)}>Register</Link>
+            <Link to="#" className="btn btn-outline" onClick={() => setOpen(false)}>Contact Us</Link>
           </div>
         </nav>
         
