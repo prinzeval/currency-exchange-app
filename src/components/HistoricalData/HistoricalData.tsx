@@ -13,7 +13,12 @@ import {
   Filler,
 } from 'chart.js';
 import { CurrencyContext } from '../../context/CurrencyContext';
+import { TbExchange } from "react-icons/tb";
+import { HiOutlineRefresh } from "react-icons/hi";
+import { BiExport } from "react-icons/bi";
+import 'flag-icons/css/flag-icons.min.css';
 import './HistoricalData.css';
+import CurrencySelect from '../CurrencyConverter/CurrencySelect';
 
 // Register Chart.js components
 ChartJS.register(
@@ -106,11 +111,10 @@ const HistoricalData: React.FC = () => {
     }
   };
 
-  // Fetch data on component mount
+  // Fetch data when component mounts or when dependencies change
   useEffect(() => {
     fetchHistoricalData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [baseCurrency, targetCurrency, timeRange]); // Automatically fetch when these change
 
   const handleSwapCurrencies = () => {
     setBaseCurrency(targetCurrency);
@@ -150,6 +154,14 @@ const HistoricalData: React.FC = () => {
         padding: 12,
         cornerRadius: 8,
         displayColors: false,
+        callbacks: {
+          title: function(tooltipItems: any) {
+            return tooltipItems[0].label;
+          },
+          label: function(context: any) {
+            return `${baseCurrency.toUpperCase()} to ${targetCurrency.toUpperCase()}: ${context.parsed.y.toFixed(4)}`;
+          }
+        }
       },
     },
     scales: {
@@ -160,6 +172,9 @@ const HistoricalData: React.FC = () => {
         ticks: {
           maxRotation: 45,
           minRotation: 45,
+          font: {
+            size: 11
+          }
         },
       },
       y: {
@@ -170,6 +185,9 @@ const HistoricalData: React.FC = () => {
           callback: function(value: any) {
             return value.toFixed(4);
           },
+          font: {
+            size: 11
+          }
         },
       },
     },
@@ -182,6 +200,10 @@ const HistoricalData: React.FC = () => {
         tension: 0.4,
       },
     },
+    animation: {
+      duration: 1000,
+      easing: 'easeOutQuart'
+    }
   };
 
   return (
@@ -195,45 +217,29 @@ const HistoricalData: React.FC = () => {
         <div className="converter-form">
           <div className="currency-input-group">
             <label className="input-label">Base Currency</label>
-            <select 
-              className="currency-select"
+            <CurrencySelect
               value={baseCurrency}
-              onChange={(e) => setBaseCurrency(e.target.value)}
-            >
-              {Object.keys(currencies).map((currency) => (
-                <option key={`base-${currency}`} value={currency}>
-                  {currencies[currency]} ({currency.toUpperCase()})
-                </option>
-              ))}
-            </select>
+              onChange={setBaseCurrency}
+              currencies={currencies}
+              placeholder="Select base currency"
+              type="from"
+            />
           </div>
           
-          <div className="exchange-icon" onClick={handleSwapCurrencies}>
-            ↔️
-          </div>
+          <button className="swap-button" onClick={handleSwapCurrencies}>
+            <TbExchange />
+          </button>
           
           <div className="currency-input-group">
             <label className="input-label">Target Currency</label>
-            <select 
-              className="currency-select"
+            <CurrencySelect
               value={targetCurrency}
-              onChange={(e) => setTargetCurrency(e.target.value)}
-            >
-              {Object.keys(currencies).map((currency) => (
-                <option key={`target-${currency}`} value={currency}>
-                  {currencies[currency]} ({currency.toUpperCase()})
-                </option>
-              ))}
-            </select>
+              onChange={setTargetCurrency}
+              currencies={currencies}
+              placeholder="Select target currency"
+              type="to"
+            />
           </div>
-          
-          <button 
-            className="fetch-button" 
-            onClick={fetchHistoricalData}
-            disabled={loading}
-          >
-            {loading ? 'Loading...' : 'Fetch Data'}
-          </button>
         </div>
         
         <div className="time-range-selector">
@@ -281,7 +287,10 @@ const HistoricalData: React.FC = () => {
           <div className="chart-header">
             <div>
               <h3 className="chart-title">
-                {baseCurrency.toUpperCase()} to {targetCurrency.toUpperCase()} Exchange Rate
+                <span className={`fi fi-${baseCurrency.substring(0, 2)}`}></span>
+                {baseCurrency.toUpperCase()} to 
+                <span className={`fi fi-${targetCurrency.substring(0, 2)}`}></span>
+                {targetCurrency.toUpperCase()} Exchange Rate
               </h3>
               <p className="chart-subtitle">
                 {timeRange === '7days' ? 'Last 7 days' : 
@@ -293,9 +302,11 @@ const HistoricalData: React.FC = () => {
             
             <div className="chart-actions">
               <button className="chart-action-button">
+                <BiExport />
                 Export
               </button>
               <button className="chart-action-button" onClick={fetchHistoricalData}>
+                <HiOutlineRefresh />
                 Refresh
               </button>
             </div>
