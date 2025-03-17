@@ -6,6 +6,7 @@ import HistoricalData from './components/HistoricalData/HistoricalData';
 import CurrencyList from './components/CurrencyList/CurrencyList';
 import Footer from './components/Footer/Footer';
 import { CurrencyProvider } from './context/CurrencyContext';
+import Hero from './components/Hero/Hero';
 import './App.css';
 
 const App: React.FC = () => {
@@ -14,11 +15,14 @@ const App: React.FC = () => {
       <CurrencyProvider>
         <div className="App">
           <Header />
-          <Routes>
-            <Route path="/" element={<CurrencyConverter />} />
-            <Route path="/historical-data" element={<HistoricalData />} />
-            <Route path="/currency-list" element={<CurrencyList />} />
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<CurrencyConverter />} />
+              <Route path="/historical-data" element={<HistoricalData />} />
+              <Route path="/currency-list" element={<CurrencyList />} />
+            </Routes>
+          </div>
+          <Hero />
           <Footer />
         </div>
       </CurrencyProvider>

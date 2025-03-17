@@ -148,7 +148,7 @@ const CurrencyConverter: React.FC = () => {
     <div className="converter-container">
       <div className="hero-section">
         <h1>Global currency conversions & money transfers</h1>
-        <p>Leading the world in currency information and global transfers for 30+ years</p>
+        <p>Leading the world in currency information and global transfers for 1M+ years</p>
       </div>
       
       <div className="converter-card">

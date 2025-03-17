@@ -21,16 +21,16 @@ const Navbar: React.FC = () => {
         
         <nav className={`main-nav ${isOpen ? 'active' : ''}`}>
           <div className="nav-group">
-            <Link to="/" className="nav-link" onClick={() => setOpen(false)}>Personal</Link>
+            <Link to="/" className="nav-link" onClick={() => setOpen(false)}>Converter</Link>
             <Link to="/business" className="nav-link" onClick={() => setOpen(false)}>Business</Link>
           </div>
           
           <div className="nav-divider"></div>
           
           <div className="nav-group">
-            <Link to="/send" className="nav-link" onClick={() => setOpen(false)}>Charts</Link>
+            <Link to="/historical-data" className="nav-link" onClick={() => setOpen(false)}>Charts</Link>
+            <Link to="/currency-list" className="nav-link" onClick={() => setOpen(false)}>Currency List</Link>
             <Link to="/transfers" className="nav-link" onClick={() => setOpen(false)}>Money transfers</Link>
-            <Link to="/converter" className="nav-link" onClick={() => setOpen(false)}>Converter</Link>
             <Link to="/tools" className="nav-link" onClick={() => setOpen(false)}>Tools</Link>
             <Link to="/resources" className="nav-link" onClick={() => setOpen(false)}>Resources</Link>
           </div>

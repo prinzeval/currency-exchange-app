@@ -28,7 +28,8 @@ body {
 
 /* Logo styling */
 .logo-img {
-  height: 30px;
+  height: 50px;
+  border-radius: 28%;
 }
 
 /* Main navigation styling */
