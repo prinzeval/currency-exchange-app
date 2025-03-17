@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
           <Link to="/">
             <img src="https://cdn.vectorstock.com/i/500p/73/56/exchange-revenue-dollar-arrows-cycle-icon-simple-vector-52517356.jpg" alt="XE" className="logo-img" />
           </Link>
+          valendata
         </div>
         
         <div className="hamburger-wrapper">

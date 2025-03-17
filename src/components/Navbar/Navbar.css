@@ -31,6 +31,14 @@ body {
   height: 50px;
   border-radius: 28%;
 }
+.logo{
+  display: flex;
+  align-items: center;
+  color: gold;
+  gap: 10px;
+  
+
+}
 
 /* Main navigation styling */
 .main-nav {
