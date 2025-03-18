@@ -1,4 +1,3 @@
-// CurrencyConverter.tsx (main component)
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { CurrencyContext } from '../../context/CurrencyContext';
@@ -20,7 +19,8 @@ const CurrencyConverter: React.FC = () => {
 
   const convertCurrency = async () => {
     try {
-      const apiUrl = `/api/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency}.json`;
+      // Use the full URL for the API endpoint
+      const apiUrl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency}.json`;
       const response = await axios.get(apiUrl);
       const rate = response.data[fromCurrency][toCurrency];
       if (!rate) throw new Error('Invalid currency code');

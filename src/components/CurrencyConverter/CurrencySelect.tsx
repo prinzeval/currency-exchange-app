@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import 'flag-icons/css/flag-icons.min.css';
 
 interface CurrencySelectProps {
   value: string;

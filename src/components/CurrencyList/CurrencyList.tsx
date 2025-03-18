@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './CurrencyList.css';
-import 'flag-icons/css/flag-icons.min.css';
 
 // Define types
 type Currency = {
