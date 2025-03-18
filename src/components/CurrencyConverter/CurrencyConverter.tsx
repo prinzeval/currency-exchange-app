@@ -56,11 +56,11 @@ const CurrencyConverter: React.FC = () => {
               <input
                 type="number"
                 value={amount}
-                onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+                onChange={(e) => setAmount(parseFloat(e.target.value))}
                 min="0.01"
                 step="0.01"
                 className="amount-input"
-                placeholder="1.00"
+                placeholder="15.00"
               />
             </div>
             
