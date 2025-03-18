@@ -3,13 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "build": "tsc && vite build",
-    "start": "node dist/server.ts",
-    "dev": "ts-node server.ts",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+ "scripts": {
+  "prebuild": "rm -rf dist",  
+  "build": "tsc && vite build",  
+  "start": "node dist/server.js",  
+  "dev": "vite", 
+  "lint": "eslint .",  
+  "preview": "vite preview" 
+}
+,
   "dependencies": {
     "axios": "^1.8.3",
     "chart.js": "^4.4.8",
