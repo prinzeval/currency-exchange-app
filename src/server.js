@@ -1,14 +1,18 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import { fileURLToPath } from 'url';
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const PROXY_TARGET = process.env.PROXY_TARGET || 'https://api.example.com';
+const PROXY_TARGET = process.env.PROXY_TARGET;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Serve static files from the Vite build output
 app.use(express.static(path.resolve(__dirname, '../dist')));
@@ -32,7 +36,7 @@ if (PROXY_TARGET) {
 }
 
 // Handle all other routes by serving the frontend's index.html (for client-side routing)
-app.get('*', (_req: Request, res: Response) => {
+app.get('*', (_req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
 });
 
