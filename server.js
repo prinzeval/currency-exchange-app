@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve static files from the Vite build output
-app.use(express.static(path.resolve(__dirname, 'dist'))); // Updated path
+app.use(express.static(path.resolve(__dirname, 'dist')));
 
 // Proxy API requests to avoid CORS issues
 if (PROXY_TARGET) {
@@ -28,7 +28,7 @@ if (PROXY_TARGET) {
       onError: (err, _req, res) => {
         console.error('Proxy error:', err);
         res.status(500).json({ error: 'Proxy server error' });
-      }
+      },
     })
   );
 } else {
@@ -37,7 +37,7 @@ if (PROXY_TARGET) {
 
 // Handle all other routes by serving the frontend's index.html (for client-side routing)
 app.get('*', (_req, res) => {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html')); // Updated path
+  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
 // Start the server
