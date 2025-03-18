@@ -15,7 +15,6 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({
   onChange, 
   currencies,
   placeholder = "Select currency",
-  type = 'from'
 }) => {
   // Format the currency options with flags
   const currencyOptions = Object.keys(currencies).map(currency => {

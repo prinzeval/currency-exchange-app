@@ -62,7 +62,8 @@ const specialCurrencyIcons: Record<string, string> = {
 };
 
 const CurrencyList: React.FC = () => {
-  const [allCurrencies, setAllCurrencies] = useState<CurrencyMap>({});
+  // const [allCurrencies, setAllCurrencies] = useState<CurrencyMap>({});
+  
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [filteredCurrencies, setFilteredCurrencies] = useState<Currency[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -92,9 +93,9 @@ const CurrencyList: React.FC = () => {
         // Try primary URL first with fallback
         let response;
         try {
-          response = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json');
+          response = await fetch(`${import.meta.env.VITE_CURRENCY_API_URL}/currencies.json`);
         } catch (err) {
-          response = await fetch('https://latest.currency-api.pages.dev/v1/currencies.json');
+          response = await fetch(`${import.meta.env.VITE_FALLBACK_CURRENCY_API_URL}/currencies.json`);
         }
         
         if (!response.ok) {
@@ -102,7 +103,6 @@ const CurrencyList: React.FC = () => {
         }
         
         const data: CurrencyMap = await response.json();
-        setAllCurrencies(data);
         
         // Process currencies with dynamic region assignment
         const currencyList: Currency[] = Object.entries(data).map(([code, name]) => {
@@ -189,11 +189,13 @@ const CurrencyList: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  // Handle region selection change
-  const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedRegion(e.target.value);
-  };
 
+  // Handle region selection change
+  // const handleRegionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSelectedRegion(e.target.value);
+  // };
+
+  
   // Calculate current items for pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;

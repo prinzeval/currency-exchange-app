@@ -12,9 +12,13 @@
   "dependencies": {
     "axios": "^1.8.3",
     "chart.js": "^4.4.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "flag-icon-css": "^4.1.7",
     "flag-icons": "^7.3.2",
     "hamburger-react": "^2.5.2",
+    "http-proxy-middleware": "^3.0.3",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
@@ -24,6 +28,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/react-router-dom": "^5.3.3",

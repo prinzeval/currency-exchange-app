@@ -11,11 +11,12 @@ import {
   Tooltip,
   Legend,
   Filler,
+  ChartOptions, // Import ChartOptions
 } from 'chart.js';
 import { CurrencyContext } from '../../context/CurrencyContext';
-import { TbExchange } from "react-icons/tb";
-import { HiOutlineRefresh } from "react-icons/hi";
-import { BiExport } from "react-icons/bi";
+import { TbExchange } from 'react-icons/tb';
+import { HiOutlineRefresh } from 'react-icons/hi';
+import { BiExport } from 'react-icons/bi';
 import 'flag-icons/css/flag-icons.min.css';
 import './HistoricalData.css';
 import CurrencySelect from '../CurrencyConverter/CurrencySelect';
@@ -140,71 +141,72 @@ const HistoricalData: React.FC = () => {
     ],
   };
 
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
+
+const chartOptions: ChartOptions<'line'> = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltip: {
+      backgroundColor: 'rgba(14, 28, 92, 0.8)',
+      titleColor: '#fff',
+      bodyColor: '#fff',
+      padding: 12,
+      cornerRadius: 8,
+      displayColors: false,
+      callbacks: {
+        title: function (tooltipItems: any) {
+          return tooltipItems[0].label;
+        },
+        label: function (context: any) {
+          return `${baseCurrency.toUpperCase()} to ${targetCurrency.toUpperCase()}: ${context.parsed.y.toFixed(4)}`;
+        },
+      },
+    },
+  },
+  scales: {
+    x: {
+      grid: {
         display: false,
       },
-      tooltip: {
-        backgroundColor: 'rgba(14, 28, 92, 0.8)',
-        titleColor: '#fff',
-        bodyColor: '#fff',
-        padding: 12,
-        cornerRadius: 8,
-        displayColors: false,
-        callbacks: {
-          title: function(tooltipItems: any) {
-            return tooltipItems[0].label;
-          },
-          label: function(context: any) {
-            return `${baseCurrency.toUpperCase()} to ${targetCurrency.toUpperCase()}: ${context.parsed.y.toFixed(4)}`;
-          }
-        }
-      },
-    },
-    scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-        ticks: {
-          maxRotation: 45,
-          minRotation: 45,
-          font: {
-            size: 11
-          }
-        },
-      },
-      y: {
-        grid: {
-          color: 'rgba(0, 0, 0, 0.05)',
-        },
-        ticks: {
-          callback: function(value: any) {
-            return value.toFixed(4);
-          },
-          font: {
-            size: 11
-          }
+      ticks: {
+        maxRotation: 45,
+        minRotation: 45,
+        font: {
+          size: 11,
         },
       },
     },
-    interaction: {
-      intersect: false,
-      mode: 'index',
-    },
-    elements: {
-      line: {
-        tension: 0.4,
+    y: {
+      grid: {
+        color: 'rgba(0, 0, 0, 0.05)',
+      },
+      ticks: {
+        callback: function (value: any) {
+          return value.toFixed(4);
+        },
+        font: {
+          size: 11,
+        },
       },
     },
-    animation: {
-      duration: 1000,
-      easing: 'easeOutQuart'
-    }
-  };
+  },
+  interaction: {
+    intersect: false,
+    mode: 'index', // This is now correctly typed
+  },
+  elements: {
+    line: {
+      tension: 0.4,
+    },
+  },
+  animation: {
+    duration: 1000,
+    easing: 'easeOutQuart',
+  },
+};
 
   return (
     <div className="historical-data-container">
