@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.ts",
-    "dev": "vite", 
+    "start": "node dist/server.ts",
+    "dev": "ts-node server.ts", 
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
