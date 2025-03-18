@@ -17,12 +17,19 @@ const App: React.FC = () => {
           <Header />
           <div className="content">
             <Routes>
-              <Route path="/" element={<CurrencyConverter />} />
+              <Route
+                path="/"
+                element={
+                  <>
+                    <CurrencyConverter />
+                    <Hero />
+                  </>
+                }
+              />
               <Route path="/historical-data" element={<HistoricalData />} />
               <Route path="/currency-list" element={<CurrencyList />} />
             </Routes>
           </div>
-          <Hero />
           <Footer />
         </div>
       </CurrencyProvider>

@@ -123,7 +123,7 @@ const CurrencyList: React.FC = () => {
             region
           };
         });
-        
+                
         setCurrencies(currencyList);
         setFilteredCurrencies(currencyList);
       } catch (err) {
