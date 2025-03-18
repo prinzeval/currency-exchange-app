@@ -14,9 +14,6 @@ Currency Explorer is a React-based web application that allows users to explore 
 - **Currency Converter**: Convert between currencies using real-time exchange rates (if integrated with an API).
 - **Beautiful UI**: Modern and user-friendly interface with smooth animations and transitions.
 
-## Demo
-
-You can check out a live demo of the project here: [Live Demo](#) *(Replace with your actual demo link)*
 
 ## Technologies Used
 
@@ -138,9 +135,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 If you have any questions or feedback, feel free to reach out:
-
-- **Email**: your-email@example.com
-- **GitHub**: [your-username](https://github.com/your-username)
-- **Twitter**: [@your-handle](https://twitter.com/your-handle)
 
 Enjoy exploring currencies with Currency Explorer! 🌍💱
