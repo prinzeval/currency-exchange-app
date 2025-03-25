@@ -10,6 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@iconify/react": "^5.2.0",
+    "@iconify/types": "^2.0.0",
     "axios": "^1.8.3",
     "chart.js": "^4.4.8",
     "cors": "^2.8.5",

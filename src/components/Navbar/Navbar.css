@@ -201,3 +201,77 @@ body {
     margin: 5px 0;
   }
 }
+/* Add these to your existing Navbar.css */
+
+/* Active link styling */
+.active-link {
+  position: relative;
+  color: #4dabf7 !important;
+  font-weight: 600 !important;
+}
+
+.active-icon {
+  color: #4dabf7;
+  margin-left: 5px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+/* Tooltip styling */
+.nav-link {
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 100px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -50px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.nav-link:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Mobile adjustments for tooltips */
+@media (max-width: 768px) {
+  .tooltip {
+    display: none;
+  }
+  
+  .active-icon {
+    margin-left: 10px;
+  }
+}
+
+/* Hover effects for links */
+.nav-link:hover {
+  color: #4dabf7 !important;
+}
+
+.active-link:hover {
+  color: #74c0fc !important;
+}
