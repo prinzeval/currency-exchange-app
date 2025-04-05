@@ -1,4 +1,3 @@
-// ConversionResult.tsx
 import React from 'react';
 
 interface ConversionResultProps {

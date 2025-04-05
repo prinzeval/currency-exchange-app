@@ -57,7 +57,6 @@ const specialCurrencyIcons: Record<string, string> = {
   'xag': 'Ag',
   'xpt': 'Pt',
   'xpd': 'Pd',
-  // Add more symbols as needed
 };
 
 const CurrencyList: React.FC = () => {
@@ -89,7 +88,7 @@ const CurrencyList: React.FC = () => {
     const fetchCurrencies = async () => {
       setLoading(true);
       try {
-        // Try primary URL first with fallback
+        // Trying primary URL first with fallback
         let response;
         try {
           response = await fetch(`${import.meta.env.VITE_CURRENCY_API_URL}/currencies.json`);
@@ -105,6 +104,7 @@ const CurrencyList: React.FC = () => {
         
         // Process currencies with dynamic region assignment
         const currencyList: Currency[] = Object.entries(data).map(([code, name]) => {
+
           // Determine region based on the code
           let region = 'other';
           
@@ -171,7 +171,7 @@ const CurrencyList: React.FC = () => {
     return `fi fi-${countryCode}`;
   };
 
-  // Check if currency should use an icon instead of a flag
+  // Checking  if currency should use an icon instead of a flag
   const shouldUseIcon = (currencyCode: string): boolean => {
     // Cryptocurrencies and precious metals usually don't have country flags
     return currencyCode.toLowerCase().startsWith('x') || 

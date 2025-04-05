@@ -1,4 +1,3 @@
-// ConverterTabs.tsx
 import React from 'react';
 import { TbExchange } from "react-icons/tb";
 import { BsFillSendArrowDownFill } from "react-icons/bs";

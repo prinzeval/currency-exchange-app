@@ -19,7 +19,6 @@ const CurrencyConverter: React.FC = () => {
 
   const convertCurrency = async () => {
     try {
-      // Use the full URL for the API endpoint
       const apiUrl = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency}.json`;
       const response = await axios.get(apiUrl);
       const rate = response.data[fromCurrency][toCurrency];

@@ -16,8 +16,9 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({
   currencies,
   placeholder = "Select currency",
 }) => {
-  // Format the currency options with flags
+
   const currencyOptions = Object.keys(currencies).map(currency => {
+    
     // Extract country code for flag (first 2 letters of currency code)
     const countryCode = currency.substring(0, 2).toLowerCase();
     

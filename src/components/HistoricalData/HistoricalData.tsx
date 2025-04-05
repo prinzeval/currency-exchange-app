@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
   Filler,
-  ChartOptions, // Import ChartOptions
+  ChartOptions, 
 } from 'chart.js';
 import { CurrencyContext } from '../../context/CurrencyContext';
 import { TbExchange } from 'react-icons/tb';
@@ -21,7 +21,7 @@ import 'flag-icons/css/flag-icons.min.css';
 import './HistoricalData.css';
 import CurrencySelect from '../CurrencyConverter/CurrencySelect';
 
-// Register Chart.js components
+// Register Chart.js components here to avoid issues with tree-shaking
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -195,7 +195,7 @@ const chartOptions: ChartOptions<'line'> = {
   },
   interaction: {
     intersect: false,
-    mode: 'index', // This is now correctly typed
+    mode: 'index', 
   },
   elements: {
     line: {
